@@ -1,0 +1,103 @@
+// CREATE AND USE DATABASE BoltonAuction
+use BoltonAuction;
+
+
+// Insert data into the "LotSale" collection
+db.LotSale.insertMany([
+  { SaleID: "S001", BidderID: "NOR0001", LotNumber: 1, WinningPrice: 150 },
+  { SaleID: "S002", BidderID: "NOR0001", LotNumber: 6, WinningPrice: 120 },
+  { SaleID: "S003", BidderID: "NOR0001", LotNumber: 5, WinningPrice: 40 },
+  { SaleID: "S004", BidderID: "COF0007", LotNumber: 3, WinningPrice: 175 },
+  { SaleID: "S005", BidderID: "HOP0008", LotNumber: 4, WinningPrice: 210 },
+  { SaleID: "S006", BidderID: "HOP0008", LotNumber: 7, WinningPrice: 95 },
+  { SaleID: "S007", BidderID: "HEN0005", LotNumber: 8, WinningPrice: 95 }
+]);
+
+// Insert data into the "Item" collection
+db.Item.insertMany([
+  { ItemID: 100, LotNumber: 1, ItemDescription: "17th century ruby ring" },
+  { ItemID: 101, LotNumber: 1, ItemDescription: "15th century gold earring" },
+  { ItemID: 102, LotNumber: 1, ItemDescription: "Edwardian Bird Brooch" },
+  { ItemID: 103, LotNumber: 6, ItemDescription: "16th century 9ct gold cuff links" },
+  { ItemID: 104, LotNumber: 4, ItemDescription: "push along dog toy" },
+  { ItemID: 105, LotNumber: 4, ItemDescription: "Victorian Doll" },
+  { ItemID: 115, LotNumber: 4, ItemDescription: "Victorian Dolls House" },
+  { ItemID: 106, LotNumber: 5, ItemDescription: "Floral Vase" },
+  { ItemID: 107, LotNumber: 3, ItemDescription: "Blue Pattern China TeaPot, 17th Century" },
+  { ItemID: 108, LotNumber: 3, ItemDescription: "Blue Pattern China Cup and Saucer, 17th Century" },
+  { ItemID: 109, LotNumber: 3, ItemDescription: "Blue Pattern China Milk Jug, 17th Century" },
+  { ItemID: 110, LotNumber: 3, ItemDescription: "Blue Pattern China Sugar Bowl, 17th Century" },
+  { ItemID: 111, LotNumber: 7, ItemDescription: "12th century white gold earrings" },
+  { ItemID: 112, LotNumber: 7, ItemDescription: "Victoria Emerald Brooch" },
+  { ItemID: 113, LotNumber: 8, ItemDescription: "Jack in the Box, 1960" },
+  { ItemID: 114, LotNumber: 8, ItemDescription: "spinning top, 1960" }
+]);
+
+// Insert data into the "Lot" collection
+db.Lot.insertMany([
+  { AuctionID: 1, LotNumber: 1, LotDescription: "17th & 15th Gold Jewellery", ReservePrice: 100, SellerID: 104 },
+  { AuctionID: 2, LotNumber: 6, LotDescription: "9ct gold cuff links", ReservePrice: 80, SellerID: 106 },
+  { AuctionID: 3, LotNumber: 4, LotDescription: "15th Century Toy Selection", ReservePrice: 150, SellerID: 108 },
+  { AuctionID: 4, LotNumber: 5, LotDescription: "Flower Vase", ReservePrice: 20, SellerID: 102 },
+  { AuctionID: 5, LotNumber: 3, LotDescription: "17th Century Blue China Tea Set", ReservePrice: 100, SellerID: 104 },
+  { AuctionID: 6, LotNumber: 7, LotDescription: "Earing and Brooch Set", ReservePrice: 80, SellerID: 104 },
+  { AuctionID: 6, LotNumber: 8, LotDescription: "1960s toys", ReservePrice: 30, SellerID: 108 }
+]);
+
+
+  // Insert data into the "Auction" collection
+db.Auction.insertMany([
+  { AuctionID: 1, AuctionDate: ISODate("2023-07-11"), AuctioneerID: "POL008", AssistantID: "FIS010", Location: "Manchester" },
+  { AuctionID: 2, AuctionDate: ISODate("2023-07-08"), AuctioneerID: "POL008", AssistantID: "FIS010", Location: "Bury" },
+  { AuctionID: 3, AuctionDate: ISODate("2023-06-11"), AuctioneerID: "POL008", AssistantID: "FIS010", Location: "Burnley" },
+  { AuctionID: 4, AuctionDate: ISODate("2023-07-11"), AuctioneerID: "MCK050", AssistantID: "GAR002", Location: "Bolton" },
+  { AuctionID: 5, AuctionDate: ISODate("2023-06-13"), AuctioneerID: "MCK050", AssistantID: "FIS010", Location: "Preston" },
+  { AuctionID: 6, AuctionDate: ISODate("2023-04-13"), AuctioneerID: "HUF001", AssistantID: "RUS006", Location: "Preston" }
+]);
+
+
+// Insert data into the "Bidder" collection
+db.Bidder.insertMany([
+  { BidderID: "NOR0001", Name: "Fredericka Norton", Address: "P.O. Box 253, 9650 Morbi Ave", Telephone: "056 4669 6460" },
+  { BidderID: "HES0001", Name: "Bree Hester", Address: "Ap #658-6893 Fusce Av.", Telephone: "(0112) 425 5551" },
+  { BidderID: "HEN0005", Name: "Upton Henson", Address: "4501 Nunc, Rd.", Telephone: "0800 986476" },
+  { BidderID: "PEN0010", Name: "Fleur Pennington", Address: "Ap #936-2164 Et Ave", Telephone: "0800 276163" },
+  { BidderID: "COF0007", Name: "Quemby Coffey", Address: "Ap #399-949 Fusce Rd.", Telephone: "0867 874 2177" },
+  { BidderID: "GAL0003", Name: "Latifah Galloway", Address: "Ap #166-6167 Sed Rd.", Telephone: "07624 896264" },
+  { BidderID: "POT0002", Name: "Beau Potter", Address: "Ap #620-6061 Sed St.", Telephone: "0845 46 46" },
+  { BidderID: "BUR0001", Name: "Jason Burgess", Address: "Ap #277-7574 Ante. Rd.", Telephone: "(016977) 1882" },
+  { BidderID: "KAU0003", Name: "Hunter Kaufman", Address: "703-9663 Ut, Av.", Telephone: "076 0886 1515" },
+  { BidderID: "HOP0008", Name: "Gavin Hopkins", Address: "260-1548 Auctor St.", Telephone: "0800 426439" }
+]);
+
+
+// Insert data into the "Seller" collection
+db.Seller.insertMany([
+  { SellerID: 100, SellerName: "Zorita Henry", SellerAddress: "Ap #583-2929 Lorem Street", SellerTelephone: "0882 811 3112" },
+  { SellerID: 101, SellerName: "Xander Doyle", SellerAddress: "410-132 Quisque Av.", SellerTelephone: "0845 46 44" },
+  { SellerID: 102, SellerName: "Maia Ayala", SellerAddress: "Ap #709-6934 Magna. St.", SellerTelephone: "0382 621 5402" },
+  { SellerID: 103, SellerName: "Rigel Newton", SellerAddress: "525-919 Scelerisque Ave", SellerTelephone: "07624 007584" },
+  { SellerID: 104, SellerName: "Barry Guerrero", SellerAddress: "306-3955 Vehicula Ave", SellerTelephone: "0500 453538" },
+  { SellerID: 105, SellerName: "Norman Wyatt", SellerAddress: "9496 Dolor Avenue", SellerTelephone: "(0114) 109 8208" },
+  { SellerID: 106, SellerName: "Alexander Bryan", SellerAddress: "Ap #211-2548 A Road", SellerTelephone: "0348 366 0677" },
+  { SellerID: 107, SellerName: "Cody Maynard", SellerAddress: "Ap #688-7847 Phasellus Ave", SellerTelephone: "070 0525 3475" },
+  { SellerID: 108, SellerName: "Maryam Rivers", SellerAddress: "9870 Malesuada. Ave", SellerTelephone: "0800 141187" },
+  { SellerID: 109, SellerName: "Ferris Gardner", SellerAddress: "Ap #762-2785 Elit, Avenue", SellerTelephone: "(013421) 29634" }
+]);
+
+// Insert data into the "Staff" collection
+db.Staff.insertMany([
+  { StaffID: "MAR001", StaffName: "Moses Marsh", StaffAddress: "2738 Dui. St.", Staffphone: "07624 433836", JobTitle: "Assistant" },
+  { StaffID: "LAR007", StaffName: "Kimberly Larson", StaffAddress: "808-6219 Ultricies Rd.", Staffphone: "0905 761 7373", JobTitle: "Assistant" },
+  { StaffID: "POL008", StaffName: "Kane Pollard", StaffAddress: "559-9243 Accumsan St.", Staffphone: "07812 584527", JobTitle: "Auctioneer" },
+  { StaffID: "CON003", StaffName: "Lareina Conway", StaffAddress: "941-6642 Donec Street", Staffphone: "070 2687 0247", JobTitle: "Assistant" },
+  { StaffID: "MCK050", StaffName: "Imani Mckay", StaffAddress: "218-4087 Turpis St.", Staffphone: "0800 224786", JobTitle: "Auctioneer" },
+  { StaffID: "GAR002", StaffName: "Paul Garner", StaffAddress: "914-2990 Ultrices. Street", Staffphone: "07624 412036", JobTitle: "Assistant" },
+  { StaffID: "FIS010", StaffName: "Ulric Fisher", StaffAddress: "536-2804 Tempus Rd.", Staffphone: "0800 272847", JobTitle: "Auctioneer" },
+  { StaffID: "HUF001", StaffName: "Peter Huff", StaffAddress: "6227 Sem. Road", Staffphone: "(0111) 811 6234", JobTitle: "Auctioneer" },
+  { StaffID: "RUS006", StaffName: "Isabella Rush", StaffAddress: "883-1373 Elit Rd.", Staffphone: "0831 059 4915", JobTitle: "Assistant" },
+  { StaffID: "POT003", StaffName: "Armand Potts", StaffAddress: "Ap #555-697 Arcu. St.", Staffphone: "0500 516540", JobTitle: "Auctioneer" }
+]);
+
+
+

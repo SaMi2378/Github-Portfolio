@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="Aircraft1"/>
+	<classpathentry kind="src" path="Aircraft2"/>
+	<classpathentry kind="src" path="Vehicle"/>
+	<classpathentry kind="src" path="Inherit"/>
+	<classpathentry kind="src" path="AbstractClasses"/>
+	<classpathentry kind="src" path="InterfaceExercise"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

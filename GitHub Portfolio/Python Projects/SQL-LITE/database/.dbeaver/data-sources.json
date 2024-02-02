@@ -1,0 +1,43 @@
+{
+	"folders": {},
+	"connections": {
+		"sqlite_jdbc-18457824950-4e49044d6bef4d9a": {
+			"provider": "sqlite",
+			"driver": "sqlite_jdbc",
+			"name": "school",
+			"save-password": true,
+			"read-only": false,
+			"configuration": {
+				"database": "\\\\MORIARTY04\\SU4CRT$\\Desktop\\python2022\\SQL-LITE\\school.db",
+				"url": "jdbc:sqlite:\\\\MORIARTY04\\SU4CRT$\\Desktop\\python2022\\SQL-LITE\\school.db",
+				"type": "dev",
+				"auth-model": "native"
+			}
+		},
+		"sqlite_jdbc-184579c8941-1c6371d1116a99f9": {
+			"provider": "sqlite",
+			"driver": "sqlite_jdbc",
+			"name": "SCHOOL2",
+			"save-password": true,
+			"read-only": false,
+			"configuration": {
+				"database": "M:\\Desktop\\python2022\\SQL-LITE\\SCHOOL2",
+				"url": "jdbc:sqlite:M:\\Desktop\\python2022\\SQL-LITE\\SCHOOL2",
+				"type": "dev",
+				"auth-model": "native",
+				"handlers": {}
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"auto-close-transactions": false
+		}
+	}
+}

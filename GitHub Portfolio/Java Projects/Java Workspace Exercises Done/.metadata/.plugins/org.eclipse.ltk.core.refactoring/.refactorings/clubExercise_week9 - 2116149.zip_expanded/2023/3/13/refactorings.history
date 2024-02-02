@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move 3 elements to &apos;Week9/src/NewClubExercise&apos;&#x0D;&#x0A;- Original project: &apos;clubExercise_week9 - 2116149.zip_expanded&apos;&#x0D;&#x0A;- Destination element: &apos;Week9/src/NewClubExercise&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     Club.java&#x0D;&#x0A;     Member.java&#x0D;&#x0A;     TestClub.java&#x0D;&#x0A;- Update references to refactored element" description="Move files" destination="=Week9/src&lt;NewClubExercise" element1="clubExercise_week9 - 2116149/Club.java" element2="clubExercise_week9 - 2116149/Member.java" element3="clubExercise_week9 - 2116149/TestClub.java" files="3" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1680030863862" units="0" version="1.0"/>
+</session>

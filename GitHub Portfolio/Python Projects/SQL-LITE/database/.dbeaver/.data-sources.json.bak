@@ -1,0 +1,30 @@
+{
+	"folders": {},
+	"connections": {
+		"sqlite_jdbc-18457824950-4e49044d6bef4d9a": {
+			"provider": "sqlite",
+			"driver": "sqlite_jdbc",
+			"name": "school",
+			"save-password": true,
+			"read-only": false,
+			"configuration": {
+				"database": "\\\\MORIARTY04\\SU4CRT$\\Desktop\\school",
+				"url": "jdbc:sqlite:\\\\MORIARTY04\\SU4CRT$\\Desktop\\school",
+				"type": "dev",
+				"auth-model": "native",
+				"handlers": {}
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"auto-close-transactions": false
+		}
+	}
+}

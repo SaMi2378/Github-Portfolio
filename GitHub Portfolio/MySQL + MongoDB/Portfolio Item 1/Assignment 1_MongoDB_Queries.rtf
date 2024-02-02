@@ -1,0 +1,275 @@
+// QUERY 1 -> Write a query to show any lots which contain items which are Toys, you must
+--            display the lot description and the date and location of the auction.
+
+
+db.Lot.aggregate([
+  {
+    $lookup: {
+      from: "Auction",
+      localField: "AuctionID",
+      foreignField: "AuctionID",
+      as: "auctionInfo"
+    }
+  },
+  {
+    $lookup: {
+      from: "Item",
+      localField: "LotNumber",
+      foreignField: "LotNumber",
+      as: "itemInfo"
+    }
+  },
+  {
+    $match: {
+      "itemInfo.ItemDescription": { $regex: /toy/i }
+    }
+  },
+  {
+    $project: {
+      "LotDescription": 1,
+      "AuctionDate": "$auctionInfo.AuctionDate",
+      "Location": "$auctionInfo.Location",
+      _id: 0
+    }
+  }
+]);
+
+
+
+
+
+
+// QUERY 2 -> Write a query to show seller name, telephone number, lot description and
+--            Reserve Price, where they have a lot where the reserve price is more than £90
+--            but less than £150 and only being auctioned in Manchester.
+
+
+db.Lot.aggregate([
+  {
+    $lookup: {
+      from: "Seller",
+      localField: "SellerID",
+      foreignField: "SellerID",
+      as: "sellerInfo"
+    }
+  },
+  {
+    $lookup: {
+      from: "Auction",
+      localField: "AuctionID",
+      foreignField: "AuctionID",
+      as: "auctionInfo"
+    }
+  },
+  {
+    $match: {
+      "auctionInfo.Location": "Manchester",
+      "ReservePrice": { $gte: 90, $lte: 150 }
+    }
+  },
+  {
+    $project: {
+      "Seller Name": "$sellerInfo.SellerName",
+      "Seller Telephone": "$sellerInfo.SellerTelephone",
+      "Lot Description": "$LotDescription",
+      "Reserve Price": "$ReservePrice",
+      _id: 0
+    }
+  }
+]);
+
+
+
+
+// QUERY 3 -> Write a query to show which customer has paid the highest total price for all
+--            successful bids, you should display the bidders name which should be labelled
+--            "Bidders Name" and the total price, which should be named as "Total Price".
+
+db.LotSale.aggregate([
+  {
+    $lookup: {
+      from: "Bidder",
+      localField: "BidderID",
+      foreignField: "BidderID",
+      as: "bidderInfo"
+    }
+  },
+  {
+    $group: {
+      _id: "$BidderID",
+      "Bidders Name": { $first: "$bidderInfo.Name" },
+      "Total Price": { $sum: "$WinningPrice" }
+    }
+  },
+  {
+    $sort: { "Total Price": -1 }
+  },
+  {
+    $limit: 1
+  },
+  {
+    $project: {
+      _id: 0
+    }
+  }
+]);
+
+
+
+// QUERY 4 -> Write a query to show the total number of successful bids per customer and
+--            their name, rename the total number of bids as "Total Bids".
+
+db.LotSale.aggregate([
+  {
+    $lookup: {
+      from: "Bidder",
+      localField: "BidderID",
+      foreignField: "BidderID",
+      as: "bidderInfo"
+    }
+  },
+  {
+    $group: {
+      _id: "$BidderID",
+      "Bidders Name": { $first: "$bidderInfo.Name" },
+      "Total Bids": { $sum: 1 }
+    }
+  },
+  {
+    $project: {
+      _id: 0
+    }
+  }
+]);
+
+
+// QUERY 5 -> Write a query to show the lowest reserve price for a seller, rename this
+-- 			  column "Lowest Reserve Price" and show the sellers name, rename this
+--            column as "Seller Name
+
+db.Lot.aggregate([
+  {
+    $group: {
+      _id: "$SellerID",
+      "Lowest Reserve Price": { $min: "$ReservePrice" }
+    }
+  },
+  {
+    $lookup: {
+      from: "Seller",
+      localField: "_id",
+      foreignField: "SellerID",
+      as: "sellerInfo"
+    }
+  },
+  {
+    $unwind: "$sellerInfo"
+  },
+  {
+    $project: {
+      "Seller Name": "$sellerInfo.SellerName",
+      "Lowest Reserve Price": 1,
+      _id: 0
+    }
+  }
+]);
+
+
+-- QUERY 6 -> Show Sellers with the Highest Reserve Price and Auction Location
+
+db.Lot.aggregate([
+  {
+    $lookup: {
+      from: "Seller",
+      localField: "SellerID",
+      foreignField: "SellerID",
+      as: "sellerInfo"
+    }
+  },
+  {
+    $lookup: {
+      from: "Auction",
+      localField: "AuctionID",
+      foreignField: "AuctionID",
+      as: "auctionInfo"
+    }
+  },
+  {
+    $unwind: "$sellerInfo"
+  },
+  {
+    $unwind: "$auctionInfo"
+  },
+  {
+    $group: {
+      _id: {
+        SellerID: "$SellerID",
+        SellerName: "$sellerInfo.SellerName",
+        Location: "$auctionInfo.Location"
+      },
+      "Highest Reserve Price": { $max: "$ReservePrice" }
+    }
+  },
+  {
+    $project: {
+      "Seller Name": "$_id.SellerName",
+      "Highest Reserve Price": 1,
+      "Auction Location": "$_id.Location",
+      _id: 0
+    }
+  }
+]);
+
+
+
+-- QUERY 7 -> Show the total number of lots auctioned per auctioneer
+
+db.Staff.aggregate([
+  {
+    $lookup: {
+      from: "Auction",
+      localField: "StaffID",
+      foreignField: "AuctioneerID",
+      as: "auctions"
+    }
+  },
+  {
+    $unwind: "$auctions"
+  },
+  {
+    $lookup: {
+      from: "Lot",
+      localField: "auctions.AuctionID",
+      foreignField: "AuctionID",
+      as: "lots"
+    }
+  },
+  {
+    $unwind: "$lots"
+  },
+  {
+    $group: {
+      _id: {
+        StaffID: "$StaffID",
+        StaffName: "$StaffName",
+        LotNumber: "$lots.LotNumber"
+      }
+    }
+  },
+  {
+    $group: {
+      _id: {
+        StaffID: "$_id.StaffID",
+        StaffName: "$_id.StaffName"
+      },
+      "Total Lots Auctioned": { $sum: 1 }
+    }
+  },
+  {
+    $project: {
+      "Auctioneer Name": "$_id.StaffName",
+      "Total Lots Auctioned": 1,
+      _id: 0
+    }
+  }
+]);
