@@ -1,0 +1,53 @@
+<!-- Frontend - index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/styles_messageSupport.css">
+</head>
+
+
+
+
+
+<body>
+    <div class="grid">
+    <%- include('partials/navbar_observer') %>
+    <div class="banner">
+        <h1>Message Form</h1>
+        
+    </div>
+    <div class="content_section">
+        <form id="messageForm" action="/observer/message_support" method="POST">
+            <label for="senderEmail">Sender Email:</label>
+            <input type="text" id="senderEmail" name="senderEmail" required value="<%= currentUserEmail %>" readonly>
+
+            <label for="receiverEmail">Receiver:</label>
+            <select id="receiverEmail" name="receiverEmail" required>
+                <%users.forEach(function(obj){ %>
+                    <option value="<%=obj.email%>" </option>
+                     [<%=obj.category%>]
+                        <%=obj.userforename%>
+                        <%=obj.usersurname%>
+                <%})%>
+            </select>
+
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="content">Message Content:</label>
+            <textarea id="content" name="content" required></textarea>
+
+            <input type="submit" value="Send Message" />
+        </form>
+    </div>
+    </div>
+    
+</body>
+
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/styles_queryUserbyID2.css">
+</head>
+
+
+
+<body>
+    <div class="grid">
+        <%- include('partials/navbar') %>
+            <div class="banner">
+                <h1>User Details</h1>
+            </div>
+            <div class="content_section">
+                <div class="user-details">
+                    <% if (user.category==='Observer' ) { %>
+                        <div class="user-detail">
+                            <label for="id">Id:</label>
+                            <div class="text-box">
+                                <%= user._id %>
+                            </div>
+                        </div>
+                        <div class="user-detail">
+                            <label for="email">Email:</label>
+                            <div class="text-box">
+                                <%= user.email %>
+                            </div>
+                        </div>
+                        <div class="user-detail">
+                            <label for="forename">Forename:</label>
+                            <div class="text-box">
+                                <%= user.userforename %>
+                            </div>
+                        </div>
+                        <div class="user-detail">
+                            <label for="surname">Surname:</label>
+                            <div class="text-box" id="text2">
+                            <%= user.usersurname %> </div>
+                        </div>
+
+                        <div class="user-detail">
+                            <label for="mobileNumber">Mobile Number:</label>
+                            <div class="text-box">
+                                <%= user.mobileNumber %>
+                            </div>
+                        </div>
+                        <div class="user-detail">
+                            <label for="address">Address:</label>
+                            <div class="text-box">
+                                <%= user.address %>
+                            </div>
+                        </div>
+                        <div class="user-detail">
+                            <label for="country">Country:</label>
+                            <div class="text-box">
+                                <%= user.country %>
+                            </div>
+                        </div>
+                        <div class="user-detail">
+                            <label for="userDOB">Date of Birth:</label>
+                            <div class="text-box">
+                                <%= user.userDOB.toLocaleDateString() %>
+                            </div>
+                        </div>
+                        <div class="user-detail">
+                            <label for="userAccounts">Number of Accounts:</label>
+                            <div class="text-box">
+                                <%= user.userAccounts %>
+                            </div>
+                        </div>
+                        <div class="user-detail">
+                            <label for="category">Category:</label>
+                            <div class="text-box" id="text2">
+                            <%= user.category %> </div>
+                        </div>
+
+                        <div class="user-detail">
+                            <label for="accountStatus">Account Status:</label>
+                            <div class="text-box">
+                                <%= user.accountStatus %>
+                            </div>
+                        </div>
+                        <div class="user-detail">
+                            <label for="accountBalance">Account Balance:</label>
+                            <div class="text-box">
+                                <%= user.accountBalance !==0 && user.accountBalance !==null ? new
+                                    Intl.NumberFormat('en-GB', { style: 'currency' , currency: 'GBP'
+                                    }).format(user.accountBalance) : '' %>
+                            </div>
+                        </div>
+                        <div class="user-detail">
+                            <label for="cardType">Card Type:</label>
+                            <div class="text-box">
+                                <%= user.cardType %>
+                            </div>
+                        </div>
+                        <div class="user-detail">
+                            <label for="cardnumber">Card Number:</label>
+                            <div class="text-box">
+                                <%= user.cardnumber %>
+                            </div>
+                        </div>
+                        <div class="user-detail">
+                            <label for="cvv">CVV:</label>
+                            <div class="text-box">
+                                <%= user.cvv %>
+                            </div>
+                        </div>
+                        <div class="user-detail">
+                            <label for="notificationPreference">Notification Preference:</label>
+                            <div class="text-box">
+                                <%= user.notificationPreference %>
+                            </div>
+                        </div>
+                        <% } else { %>
+
+
+
+                            <div class="user-detail">
+                                <label for="id">Id:</label>
+                                <div class="text-box">
+                                    <%= user._id %>
+                                </div>
+                            </div>
+                            <div class="user-detail">
+                                <label for="email">Email:</label>
+                                <div class="text-box">
+                                    <%= user.email %>
+                                </div>
+                            </div>
+                            <div class="user-detail">
+                                <label for="forename">Forename:</label>
+                                <div class="text-box">
+                                    <%= user.userforename %>
+                                </div>
+                            </div>
+                            <div class="user-detail">
+                                <label for="surname">Surname:</label>
+                                <div class="text-box">
+                                    <%= user.usersurname %>
+                                </div>
+                            </div>
+                            <div class="user-detail">
+                                <label for="mobileNumber">Mobile Number:</label>
+                                <div class="text-box">
+                                    <%= user.mobileNumber %>
+                                </div>
+                            </div>
+                            <div class="user-detail">
+                                <label for="address">Address:</label>
+                                <div class="text-box">
+                                    <%= user.address %>
+                                </div>
+                            </div>
+                            <div class="user-detail">
+                                <label for="country">Country:</label>
+                                <div class="text-box">
+                                    <%= user.country %>
+                                </div>
+                            </div>
+                            <div class="user-detail">
+                                <label for="userDOB">Date of Birth:</label>
+                                <div class="text-box">
+                                    <%= user.userDOB.toLocaleDateString() %>
+                                </div>
+                            </div>
+                            <div class="user-detail">
+                                <label for="userAccounts">Number of Accounts:</label>
+                                <div class="text-box">
+                                    <%= user.userAccounts %>
+                                </div>
+                            </div>
+                            <div class="user-detail">
+                                <label for="category">Category:</label>
+                                <div class="text-box">
+                                    <%= user.category %>
+                                </div>
+                            </div>
+                            <div class="user-detail">
+                                <label for="accountStatus">Account Status:</label>
+                                <div class="text-box">
+                                    <%= user.accountStatus %>
+                                </div>
+                            </div>
+                            <% } %>
+                                <input type="button" id="back-button" value="Home"
+                                    onclick="window.location.href='/users/userhome'">
+                </div>
+            </div>
+
+            <div class="footer_section"></div>
+    </div>
+</body>
+
+</html>

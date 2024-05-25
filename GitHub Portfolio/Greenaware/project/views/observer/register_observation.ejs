@@ -1,0 +1,111 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Observation Registration</title>
+    <link rel="stylesheet" href="../../css/styles_observation.css"> <!-- Link to your CSS stylesheet -->
+</head>
+<style>
+    #test{
+        background-color: black;
+    }
+</style>
+<body>
+    <h1>Register an Observation</h1>
+   
+    <form action="register_observation" method="POST">
+
+        <label for="email">Email</label>
+        <input type="text"  name="email" id="email" value="<%= user.username %>" readonly required>
+
+        <label for="fullname">Name</label>
+        <input type="text" name="fullname" id="fullname"  placeholder="Enter full name..." required>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required><br><br>
+
+        <label for="time">Time:</label>
+        <input type="time" id="time" name="time" required><br><br>
+
+        <!-- <label for="timezone">Time Zone Offset:</label>
+        <input type="text" id="timezone" name="timezone" pattern="UTC[+-]\d{2}:\d{2}" placeholder="UTC+00:00" required><br><br> -->
+
+        <label for="timezone">Time Zone Offset:</label>
+        <select id="timezone" name="timezone">
+            <option value="UTC-12:00">(UTC-12:00) Baker Island, Howland Island</option>
+            <option value="UTC-11:00">(UTC-11:00) Niue, American Samoa</option>
+            <option value="UTC-10:00">(UTC-10:00) Hawaii, French Polynesia</option>
+            <option value="UTC-09:30">(UTC-09:30) Marquesas Islands</option>
+            <option value="UTC-09:00">(UTC-09:00) Alaska, Gambier Islands</option>
+            <option value="UTC-08:00">(UTC-08:00) Pacific Time Zone (USA), Baja California (Mexico)</option>
+            <option value="UTC-07:00">(UTC-07:00) Mountain Time Zone (USA), Chihuahua (Mexico)</option>
+            <option value="UTC-06:00">(UTC-06:00) Central Time Zone (USA), Central America</option>
+            <option value="UTC-05:00">(UTC-05:00) Eastern Time Zone (USA), Cuba, Colombia</option>
+            <option value="UTC-04:00">(UTC-04:00) Atlantic Time Zone (Canada), Venezuela</option>
+            <option value="UTC-03:30">(UTC-03:30) Newfoundland and Labrador</option>
+            <option value="UTC-03:00">(UTC-03:00) Argentina, Brazil, Uruguay</option>
+            <option value="UTC-02:00">(UTC-02:00) South Georgia and the South Sandwich Islands</option>
+            <option value="UTC-01:00">(UTC-01:00) Azores, Cape Verde</option>
+            <option value="UTC+00:00">(UTC+00:00) Greenwich Mean Time (GMT), Iceland</option>
+            <option value="UTC+01:00">(UTC+01:00) Central European Time (CET), West Africa</option>
+            <option value="UTC+02:00">(UTC+02:00) Eastern European Time (EET), Israel</option>
+            <option value="UTC+03:00">(UTC+03:00) Moscow Time, East Africa</option>
+            <option value="UTC+03:30">(UTC+03:30) Iran</option>
+            <option value="UTC+04:00">(UTC+04:00) Gulf Standard Time, Armenia</option>
+            <option value="UTC+04:30">(UTC+04:30) Afghanistan</option>
+            <option value="UTC+05:00">(UTC+05:00) Pakistan, Maldives</option>
+            <option value="UTC+05:30">(UTC+05:30) India, Sri Lanka</option>
+            <option value="UTC+05:45">(UTC+05:45) Nepal</option>
+            <option value="UTC+06:00">(UTC+06:00) Bangladesh, Bhutan</option>
+            <option value="UTC+06:30">(UTC+06:30) Cocos Islands</option>
+            <option value="UTC+07:00">(UTC+07:00) Indochina Time, Western Indonesia</option>
+            <option value="UTC+08:00">(UTC+08:00) China, Philippines, Western Australia</option>
+            <option value="UTC+08:45">(UTC+08:45) Southeastern Western Australia</option>
+            <option value="UTC+09:00">(UTC+09:00) Japan, Korea</option>
+            <option value="UTC+09:30">(UTC+09:30) Central Australia</option>
+            <option value="UTC+10:00">(UTC+10:00) Eastern Australia, Papua New Guinea</option>
+            <option value="UTC+10:30">(UTC+10:30) Lord Howe Island</option>
+            <option value="UTC+11:00">(UTC+11:00) Solomon Islands, Vanuatu</option>
+            <option value="UTC+12:00">(UTC+12:00) Fiji, New Zealand</option>
+            <option value="UTC+12:45">(UTC+12:45) Chatham Islands</option>
+            <option value="UTC+13:00">(UTC+13:00) Tonga</option>
+            <option value="UTC+14:00">(UTC+14:00) Line Islands</option>
+        </select>
+
+
+        <label for="coordinates">Coordinates (Decimal Degrees):</label>
+        <input type="text" id="coordinates" name="coordinates" placeholder="Latitude, Longitude" required><br><br>
+
+        <label for="temperature_land">Temperature - Land Surface (°C):</label>
+        <input type="number" id="temperature_land" name="temperature_land" step="0.01" required><br><br>
+
+        <label for="temperature_sea">Temperature - Sea Surface (°C):</label>
+        <input type="number" id="temperature_sea" name="temperature_sea" step="0.01" required><br><br>
+
+        <label for="humidity">Humidity (g/kg):</label>
+        <input type="number" id="humidity" name="humidity" step="0.01" required><br><br>
+
+        <label for="wind_speed">Wind Speed (km/h):</label>
+        <input type="number" id="wind_speed" name="wind_speed" required><br><br>
+
+        <label for="wind_direction">Wind Direction (decimal degrees):</label>
+        <input type="number" id="wind_direction" name="wind_direction" required><br><br>
+
+        <label for="precipitation">Precipitation (mm):</label>
+        <input type="number" id="precipitation" name="precipitation" required><br><br>
+
+        <label for="haze">Haze (%):</label>
+        <input type="number" id="haze" name="haze" required><br><br>
+
+        <label for="notes">Notes:</label>
+        <textarea id="notes" name="notes" rows="4" cols="50"></textarea><br><br>
+
+        <input type="submit" value="Submit Observation">
+        <input type="button" id="cancel-button" value="Cancel" onclick="window.location.href='/observer/observer_menu'">
+    </form>
+    
+</body>
+</html>

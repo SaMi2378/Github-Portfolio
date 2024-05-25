@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Management Menu</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../css/styles_queryUsersbyID.css">
+    </head>
+    
+
+    
+
+    <body>
+        <div class="grid">
+            <%- include('partials/navbar') %>
+            <div class="banner">
+                <h1>Query User</h1>
+            </div>
+                <div class="content_section">
+                    <form action="queryuser" method="post">
+                        <fieldset>
+
+                            <p>
+                                <label id="Selection">Select User</label>
+                                <select id="_id" name="_id">
+                                    <%users.forEach(function(obj){ %>
+                                        <option value="<%=obj._id%>" </option>
+                                        [<%= obj.category %>]
+                                            <%=obj.userforename%>
+                                                <%=obj.usersurname%>
+                                                    <%})%>
+                                </select>
+                            </p>
+                            </p>
+                            <!-- <button>Search</button> -->
+                        </fieldset>
+                        <input type="submit" id="search-button" value="Search">
+                        <input type="button" id="cancel-button2" value="Cancel"
+                            onclick="window.location.href='/users/userhome'">
+                    </form>
+                </div>
+                <div class="footer_section"></div>
+        </div>
+    </body>
+
+</html>

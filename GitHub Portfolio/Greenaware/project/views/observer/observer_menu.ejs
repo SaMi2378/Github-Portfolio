@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Observers Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/styles_observer_menu.css">
+
+</head> 
+
+   
+
+
+<body>
+    <div class="grid">
+        <%- include('partials/navbar_observer') %>
+        <!-- Fieldset for displaying all observations -->
+        <div class="fieldset-container">
+            <fieldset class="fieldset-left">
+                <legend id="legend1">View All Observations</legend>
+                <!-- Observation table -->
+                <table class="observation-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th class="email">Email</th>
+                            <th>Full Name</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Timezone</th>
+                            <th>Coordinates</th>
+                            <th>Temperature (Land)</th>
+                            <th>Temperature (Sea)</th>
+                            <th>Humidity</th>
+                            <th>Wind Speed</th>
+                            <th>Wind Direction</th>
+                            <th>Precipitation</th>
+                            <th>Haze</th>
+                            <th  class="notes">Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Loop through observations and display each row -->
+                        <% observations.forEach(observation=> { %>
+                            <tr>
+                                <td><input type="checkbox" class="observationCheckbox" value="<%= observation._id %>"></td> <!-- Add checkbox -->
+                                <td class="email">
+                                    <%= observation.email %>
+                                </td>
+                                <td>
+                                    <%= observation.fullname %>
+                                </td>
+                                <td>
+                                    <%= observation.date.toDateString() %>
+                                </td>
+                                <td>
+                                    <%= observation.time %>
+                                </td>
+                                <td>
+                                    <%= observation.timezone %>
+                                </td>
+                                <td>
+                                    <%= observation.coordinates %>
+                                </td>
+                                <td>
+                                    <%= observation.temperature_land %>°C
+                                </td>
+                                <td>
+                                    <%= observation.temperature_sea %>°C
+                                </td>
+                                <td>
+                                    <%= observation.humidity %>g/kg
+                                </td>
+                                <td>
+                                    <%= observation.wind_speed %>km/h
+                                </td>
+                                <td>
+                                    <%= observation.wind_direction %>°
+                                </td>
+                                <td>
+                                    <%= observation.precipitation %>mm
+                                </td>
+                                <td>
+                                    <%= observation.haze %>%
+                                </td>
+                                <td  class="notes">
+                                    <%= observation.notes %>
+                                </td>
+                            </tr>
+                            <% }) %>
+                    </tbody>
+                </table>
+            </fieldset>
+            
+
+            <!-- Placeholder for the right-side fieldset -->
+            <fieldset class="fieldset-right">
+                <legend id="legend2">Received Messages</legend>
+                <!-- Leave this blank for now -->
+                <table class="messages-table">
+                    <thead>
+                        <tr>
+                            <th>Receiver</th>
+                            <th>Sender Email</th>
+                            <th>Name</th>
+                            <th>Content</th>
+                            <th>Timestamp</th>
+                        </tr>
+                    </thead>
+                    <tbody id="messagesTableBody">
+                        <!-- Loop through observations and display each row -->
+                        <% receivedMessages.forEach(message => { %>
+                            <tr>
+                                <td><%= message.receiverEmail %></td>
+                                <td><%= message.senderEmail %></td>
+                                <td><%= message.name %></td>
+                                <td><%= message.content %></td>
+                                <td><%= message.timestamp %></td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </fieldset>
+        </div>
+        <button id="newObservation" onclick="window.location.href='/observer/register_observation'">Register</button>
+        <button id="deleteButton">Delete</button>
+
+
+        <div class="content_section">
+
+        </div>
+        <div class="footer_section"></div>
+    </div>
+
+    <!--Here down there are two ways to use the script, Inserting it directly here, or if we go down i have used a separate file where
+    This script was saved and then called it here using the path to it with the method  src="path/to/file.js"-->
+    <!-- <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const deleteButton = document.getElementById('deleteButton');
+            const observationCheckboxes = document.querySelectorAll('.observationCheckbox');
+
+            deleteButton.addEventListener('click', async function () {
+                const selectedObservations = Array.from(observationCheckboxes)
+                    .filter(checkbox => checkbox.checked)
+                    .map(checkbox => checkbox.value);
+
+                if (selectedObservations.length === 0) {
+                    alert('Please select observations to delete.');
+                    return;
+                }
+
+                const confirmation = confirm(`Are you sure you want to delete ${selectedObservations.length} observation(s)?`);
+                if (!confirmation) return;
+
+                console.log('Selected Observations:', selectedObservations); // Log selected observation IDs for debugging
+
+                try {
+                    const response = await fetch('/observer/delete-observations', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json' // Ensure this is set correctly
+                        },
+                        body: JSON.stringify({ observations: selectedObservations }) // Stringify the body
+                    });
+
+                    if (response.ok) {
+                        alert('Selected observations deleted successfully.');
+                        // You can refresh the page or update the UI as needed
+                        window.location.reload();
+                    } else {
+                        const errorData = await response.json();
+                        throw new Error(errorData.message);
+                    }
+                } catch (error) {
+                    console.error('Error:', error.message);
+                    alert('An error occurred while deleting observations. Please try again.');
+                }
+            });
+        });
+
+
+           
+
+        
+    </script> -->
+
+    <script  src="../../javascript/script_ObserverMenu.js"></script>
+    
+
+</body>
+
+</html>

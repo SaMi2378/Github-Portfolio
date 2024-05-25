@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Management Menu</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/styles_suRegisterUser.css">
+</head>
+
+<!--This script can be used in both ways, directly here or saving it in diferent file.-->
+<!-- <script>
+    // Function to show/hide additional fields based on category selection
+    function toggleFields() {
+        const category = document.getElementById('category').value;
+        const observerFields = document.getElementById('observer-fields');
+
+        if (category === 'Observer') {
+            observerFields.style.display = 'block';
+        } else {
+            observerFields.style.display = 'none';
+        }
+    }
+
+
+
+</script> -->
+
+<script src="../../javascript/script_ToggleFieldsAdduser.js"></script>
+
+
+
+<body>
+    <div class="grid">
+        <%- include('partials/navbar') %>
+        <div class="banner">
+            <h1>Register a User </h1>
+        </div>
+        <div class="content_section container">
+            <form action="adduser" method="POST" class="row justify-content-center">
+                <div class="col-md-6">
+                    <label for="username">Email address:</label>
+                    <input type="text" id="username" name="username" class="form-control" placeholder="Enter email..."
+                        required />
+
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" class="form-control"
+                        placeholder="Enter password..." required />
+
+                    <label for="usertitle">Title:</label>
+                    <select id="usertitle" name="usertitle" class="form-control" required>
+                        <option value="Mr"> Mr</option>
+                        <option value="Mrs"> Mrs</option>
+                        <option value="Ms"> Ms</option>
+                        <option value="Dr"> Dr</option>
+                    </select>
+
+                    <label for="userforename">Forename:</label>
+                    <input type="text" id="userforename" name="userforename" class="form-control"
+                        placeholder="Enter forename..." required />
+
+                    <label for="usersurname">Surname:</label>
+                    <input type="text" id="usersurname" name="usersurname" class="form-control"
+                        placeholder="Enter surname..." required />
+
+                    <label for="mobileNumber">Mobile Number:</label>
+                    <input type="text" id="mobileNumber" name="mobileNumber" class="form-control"
+                        placeholder="Enter mobile number..." required />
+
+                    <label for="address">Address:</label>
+                    <textarea id="address" name="address" class="form-control" placeholder="Enter address" rows="3"
+                        required></textarea>
+                </div>
+                <div class="col-md-6">
+                    <label for="country">Country:</label>
+                    <input id="country" name="country" class="form-control" placeholder="Enter country" required />
+
+                    <label for="userDOB">Date of Birth:</label>
+                    <input id="userDOB" name="userDOB" type="date" class="form-control" value="2009-01-01"
+                        min="1910-01-01" max="2010-01-01" required />
+
+                    <label for="userAccounts">Number of Accounts:</label>
+                    <input type="number" id="userAccounts" name="userAccounts" class="form-control" value="1" min="1"
+                        max="2" required />
+
+                    <label for="category">Category:</label>
+                    <select id="category" name="category" class="form-control" onchange="toggleFields()" required>
+                        <option value="Support">Support</option>
+                        <option value="Observer">Observer</option>
+                    </select>
+
+                    <label for="accountStatus">Account Status:</label>
+                    <select id="accountStatus" name="accountStatus" class="form-control">
+                        <option value="Active">Active</option>
+                    </select>
+
+
+                    <div id="observer-fields" style="display: none;">
+                        <label for="accountBalance">Account Balance:</label>
+                        <input type="number" id="accountBalance" name="accountBalance"
+                            placeholder="Enter balance..." /><br>
+
+
+
+                        <label for="cardnumber">Card Number (16 digits):</label>
+                        <input type="text" id="cardnumber" name="cardnumber" placeholder="Enter card number..." /><br>
+
+                        <label for="cardType">Credit Card Type:</label>
+                        <select id="cardType" name="cardType">
+                            <option value="Visa">Visa</option>
+                            <option value="Mastercard">Mastercard</option>
+                        </select><br>
+
+                        <label for="cvv">CVV (3 digits):</label>
+                        <input type="password" id="cvv" name="cvv"><br>
+
+                        <label for="notificationPreference">Notification Preference:</label>
+                        <select id="notificationPreference" name="notificationPreference">
+                            <option value="Text">Text</option>
+                            <option value="Email">Email</option>
+                        </select><br>
+                    </div>
+                      <input type="submit" value="Register" />
+                    <input type="button" id="cancel-button2" value="Cancel"
+                        onclick="window.location.href='/users/userhome'">
+
+
+                </form>
+            </div>
+            <div class="footer_section"></div>
+    </div>
+</body>
+
+</html>

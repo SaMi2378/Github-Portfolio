@@ -1,0 +1,294 @@
+/* Menu Bar Styles */
+.menu_bar_horizontal {
+  background-color: #ffffff00; /* WHITHE color */
+  padding: 10px;
+  text-align: center; /* Center the menu items */
+}
+
+.btn-group_horizontal {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-group_horizontal li {
+  margin: 0 20px;
+}
+
+.btn-group_horizontal a {
+  color: rgba(0, 0, 0, 0.555);
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.btn-group_horizontal a:hover {
+  color: #e91717;
+}
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #5c5858; /* Light gray background */
+  background-image: url('../images/nature1.jpg');
+  background-size: cover;
+  background-repeat: repeat-y;
+  background-attachment: fixed;
+  height: 100%;
+  width: 100%;
+
+}
+
+/* Grid Styles */
+.grid {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto; /* Adjust height as needed */
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
+  height: 100vh;
+}
+
+/* Banner Styles */
+.banner {
+  margin-bottom: 10px;
+  grid-row: 1;
+  background-color: #f5f5f500; /* Green color */
+  color: #fdfdfd69;
+  padding: 20px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;;
+}
+
+.banner h1 {
+  margin: 0;
+}
+
+/* Navbar Styles */
+.navbar {
+  grid-row: 2; /* Adjust the grid row */
+  background-color: #4CAF50; /* Green color */
+  padding: 20px 0;
+  text-align: center;
+  position: sticky; /* Make the navbar sticky */
+  top: 0; /* Stick to the top of the viewport */
+  z-index: 1000; /* Ensure it's on top of other elements */
+}
+
+.navbar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.navbar li {
+  display: inline-block;
+  margin: 0 20px;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.navbar a:hover {
+  color: #ccc;
+}
+
+/* Footer Styles */
+.footer_section {
+  grid-row: 4; /* Adjust the grid row */
+  background-color: #4CAF50; /* Green color */
+  color: #fff;
+  text-align: center;
+}
+
+/* Content Section Styles */
+.content_section {
+  grid-row: 3; /* Adjust the grid row */
+  padding: 20px;
+}
+
+form {
+  width: 300px;
+  margin: 0px auto 0;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgb(255, 253, 253);
+
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff; /* Green color */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #0056b3; /* Darker green color */
+}
+
+/* CSS for User List Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  
+}
+
+table th,
+table td {
+  padding: 8px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+table tr{
+  background-color: #f2f2f2;
+}
+table tr:hover {
+  background-color: #f2f2f2;
+}
+
+.table_scroll {
+  overflow-x: auto;
+}
+
+#category,
+#usertitle,
+#userDOB,
+#userAccounts,
+#accountBalance,
+#cvv,
+#cardType,
+#notificationPreference {
+  margin-bottom: 7px;
+}
+
+#accountStatus{
+  margin-bottom: 2px;
+}
+
+#back-button {
+  background-color: #f5f0f0;
+  margin: 0 auto; /* Center the button horizontally */
+  margin-top: 20px;
+  display: block; /* Make it a block element to apply margin and centering */
+  padding: 10px 30px; /* Increase padding to make it bigger */
+  font-size: 20px; /* Increase font size */
+  border: none; /* Remove border */
+  border-radius: 5px;
+}
+
+#back-button:hover {
+  background-color: #ffffff85;
+  cursor: pointer; /* Change cursor on hover */
+}
+ 
+#search-button{
+ 
+  
+  margin-top: 7px;
+  margin-bottom: 7px;
+  
+}
+
+
+
+#cancel-button2{
+ 
+  background-color: #eb0d0d;
+  margin: 0 auto; /* Center the button horizontally */
+  margin-top: 5px;
+  margin-bottom: 7px;
+  display: block; /* Make it a block element to apply margin and centering */
+  padding: 8px 107px; /* Increase padding to make it bigger */
+  font-size: 15px; /* Increase font size */
+  border: none; /* Remove border */
+  border-radius: 5px;
+  color: #fff;
+}
+
+#cancel-button2:hover {
+  background-color: #eb0d0d8f;
+  cursor: pointer; /* Change cursor on hover */
+}
+
+#_id{
+  
+  margin-bottom: 2px;
+}
+#Selection{
+  margin-top: 1px;
+}
+
+#delete-button{
+  
+  margin-top: 7px;
+  margin-bottom: 7px;
+
+  
+}
+
+
+#accept-button{
+ 
+  margin-top: 7px;
+  margin-bottom: 7px;
+
+}
+
+/*Get users page designing of table and field*/
+#legend_observer{
+  color: #fff;
+  font-size: 20px;
+  padding: 20px;
+
+}
+#legend_support{
+  color: #fff;
+  font-size: 20px;
+  padding: 20px;
+
+}
+#field_observer {
+  border: 1px solid #ced4da;
+  margin-bottom: 50px;
+  padding: 20px;
+}
+
+#field_support {
+  border: 1px solid #ced4da;
+  margin-bottom: 50px;
+  padding: 20px;
+}

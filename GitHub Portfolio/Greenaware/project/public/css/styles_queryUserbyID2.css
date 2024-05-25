@@ -1,0 +1,159 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    background-image: url('../images/nature1.jpg');
+    background-size: cover;
+    background-repeat: repeat-y;
+    background-attachment: fixed;
+    height: 100%;
+    width: 100%;
+  
+}
+
+/*Banner with title style*/
+.banner {
+  margin-bottom: 0px;
+  grid-row: 1;
+  background-color: #f5eeee7a; /* Green color */
+  color: #000000;
+  padding: 5px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;;
+  width: 16.25%;
+  margin: auto;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgb(0, 153, 255);
+  margin-bottom: 40px;
+}
+
+.banner h1 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+/*Navbar complete style*/
+.navbar {
+    background-color: #28a745; /* Light green */
+    width: 80%; /* Smaller width */
+    margin:  auto; /* Center the navbar */
+    border-radius: 10px;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    height: 50px;
+    box-shadow: 0 0 10px rgb(255, 255, 255);
+}
+
+.navbar-brand, .navbar-nav .nav-link {
+    color: #ffffff;
+    font-weight: bold;
+    
+}
+
+ul{
+    width: 100vh;
+
+}
+
+
+.menu_text{
+    color: #ffffff;
+    font-weight: bold;
+    margin-top: 8px;
+    
+    
+}
+
+#navbar-brand{
+    left: 10px;
+}
+
+.container {
+    margin-top: 0;
+    margin-left: 50px;
+    width: 150%;
+
+}
+
+#container2{
+    margin-top: 0;
+    margin-right: -90px;
+}
+
+
+/*Table desgining*/
+
+
+
+
+
+.content_section {
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-detail {
+    margin-bottom: 15px;
+}
+
+
+label {
+    font-weight: bold;
+}
+
+input[type="button"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #007bff; /* Blue color */
+    color: #fff;
+}
+
+
+ #back-button {
+  background-color: #2ed118;
+  margin: 0 auto; /* Center the button horizontally */
+  margin-top: 20px;
+  display: block; /* Make it a block element to apply margin and centering */
+  padding: 10px 30px; /* Increase padding to make it bigger */
+  font-size: 20px; /* Increase font size */
+  border: none; /* Remove border */
+  border-radius: 5px;
+}
+
+#back-button:hover {
+  background-color: #ffffff85;
+  cursor: pointer; /* Change cursor on hover */
+}
+.text-box {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.text-box2 {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+.user-detail2{
+    margin-bottom: 15px;
+}
+

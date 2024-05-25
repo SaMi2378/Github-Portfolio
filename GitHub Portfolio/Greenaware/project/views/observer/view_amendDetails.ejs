@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/styles_viewAmendDetailsOb.css">
+</head>
+    <style>
+       
+
+    </style>
+
+<body>
+    <div class="grid">
+        <%- include('partials/navbar_observer') %>
+        <div class="banner">
+            <h1>Details</h1>
+        </div>
+        <div class="content_section">
+            <% if (qryRes) { %>
+            <form method="post" action="/observer/view_amendDetails">
+                <fieldset>
+                    <input type="hidden" name="_id" value="<%= qryRes._id %>">
+                    
+                    <p>
+                        <label for="email">Email: </label>
+                        <input type="text" id="email" name="email" placeholder="Enter email..." value="<%= qryRes.email %>" required />
+                    </p>
+                    
+                    <p>
+                        <label for="usertitle">Title: </label>
+                        <select id="usertitle" name="usertitle" required>
+                            <option value="Mr" <%= qryRes.usertitle === 'Mr' ? 'selected' : '' %>>Mr</option>
+                            <option value="Mrs" <%= qryRes.usertitle === 'Mrs' ? 'selected' : '' %>>Mrs</option>
+                            <option value="Ms" <%= qryRes.usertitle === 'Ms' ? 'selected' : '' %>>Ms</option>
+                            <option value="Dr" <%= qryRes.usertitle === 'Dr' ? 'selected' : '' %>>Dr</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label for="userforename">Forename: </label>
+                        <input type="text" id="userforename" name="userforename" placeholder="Enter forename..." value="<%= qryRes.userforename %>" required />
+                    </p>
+                    <p>
+                        <label for="usersurname">Surname: </label>
+                        <input type="text" id="usersurname" name="usersurname" placeholder="Enter surname..." value="<%= qryRes.usersurname %>" required />
+                    </p>
+                    <p>
+                        <label for="mobileNumber">Mobile Number: </label>
+                        <input type="text" id="mobileNumber" name="mobileNumber" placeholder="Enter mobile number..." value="<%= qryRes.mobileNumber %>" required />
+                    </p>
+                    <p>
+                        <label for="address">Address:</label>
+                        <textarea id="address" name="address" placeholder="Enter address" rows="3" required><%= qryRes.address %></textarea>
+                    </p>
+                    <p>
+                        <label for="country">Country:</label>
+                        <textarea id="country" name="country" placeholder="Enter country" rows="1" required><%= qryRes.country %></textarea>
+                    </p>
+                    <p>
+                        <label for="userDOB">Date of Birth: </label>
+                        <input id="userDOB" name="userDOB" type="date" value="<%= new Date(qryRes.userDOB).toISOString().split('T')[0] %>" min="1910-01-01" max="2010-01-01" required />
+                    </p>
+                    <p>
+                        <label for="userAccounts">Number of Accounts: </label>
+                        <input type="number" id="userAccounts" name="userAccounts" value="<%= qryRes.userAccounts %>" min="1" max="2" required />
+                    </p>
+                    <p>
+                        <label for="category">Category:</label>
+                        <select id="category" name="category">
+                            <option value="Support" <%= qryRes.category === 'Support' ? 'selected' : '' %>>Support</option>
+                            <option value="Observer" <%= qryRes.category === 'Observer' ? 'selected' : '' %>>Observer</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label for="accountStatus">Account Status:</label>
+                        <select id="accountStatus" name="accountStatus">
+                            <option value="Active" <%= qryRes.accountStatus === 'Active' ? 'selected' : '' %>>Active</option>
+                            <option value="Inactive" <%= qryRes.accountStatus === 'Inactive' ? 'selected' : '' %>>Inactive</option>
+                            <option value="Suspended" <%= qryRes.accountStatus === 'Suspended' ? 'selected' : '' %>>Suspended</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label for="accountBalance">Account Balance:</label>
+                        <input type="number" id="accountBalance" name="accountBalance" placeholder="Enter balance..." value="<%= qryRes.accountBalance %>" />
+                    </p>
+                    <p>
+                        <label for="cardnumber">Card Number (16 digits):</label>
+                        <input type="text" id="cardnumber" name="cardnumber" placeholder="Enter card number..." value="<%= qryRes.cardnumber %>" />
+                    </p>
+                    <p>
+                        <label for="cardType">Credit Card Type:</label>
+                        <select id="cardType" name="cardType">
+                            <option value="Visa" <%= qryRes.cardType === 'Visa' ? 'selected' : '' %>>Visa</option>
+                            <option value="Mastercard" <%= qryRes.cardType === 'Mastercard' ? 'selected' : '' %>>Mastercard</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label for="cvv">CVV (3 digits):</label>
+                        <input type="password" id="cvv" name="cvv" value="<%= qryRes.cvv %>">
+                    </p>
+                    <p>
+                        <label for="notificationPreference">Notification Preference:</label>
+                        <select id="notificationPreference" name="notificationPreference">
+                            <option value="Text" <%= qryRes.notificationPreference === 'Text' ? 'selected' : '' %>>Text</option>
+                            <option value="Email" <%= qryRes.notificationPreference === 'Email' ? 'selected' : '' %>>Email</option>
+                        </select>
+                    </p>
+                    <div class="button-container">
+                        <input type="submit" id="accept-button" value="Accept">
+                        <input type="button" id="cancel-button2" value="Cancel" onclick="window.location.href='/observer/observer_menu'">
+                    </div>
+                </fieldset>
+            </form>
+            <% } else { %>
+                <p>No user data available</p>
+            <% } %>
+        </div>
+        <div class="footer_section"></div>
+    </div>
+</body>
+</html>

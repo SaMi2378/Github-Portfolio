@@ -1,0 +1,150 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    background-image: url('../images/nature1.jpg');
+    background-size: cover;
+    background-repeat: repeat-y;
+    background-attachment: fixed;
+    height: 100%;
+    width: 100%;
+  
+}
+
+/*Banner with title style*/
+.banner {
+  margin-bottom: 0px;
+  grid-row: 1;
+  background-color: #f5eeee7a; /* Green color */
+  color: #000000;
+  padding: 5px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;;
+  width: 16.25%;
+  margin: auto;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgb(0, 153, 255);
+  
+}
+
+.banner h1 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+/*Navbar complete style*/
+.navbar {
+    background-color: #28a745; /* Light green */
+    width: 80%; /* Smaller width */
+    margin:  auto; /* Center the navbar */
+    border-radius: 10px;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    height: 50px;
+    box-shadow: 0 0 10px rgb(255, 255, 255);
+}
+
+.navbar-brand, .navbar-nav .nav-link {
+    color: #ffffff;
+    font-weight: bold;
+    
+}
+
+ul{
+    width: 100vh;
+
+}
+
+
+.menu_text{
+    color: #ffffff;
+    font-weight: bold;
+    margin-top: 8px;
+    
+    
+}
+
+#navbar-brand{
+    left: 10px;
+}
+
+.container {
+    margin-top: 0;
+    margin-left: 50px;
+    width: 150%;
+
+}
+
+#container2{
+    margin-top: 0;
+    margin-right: -90px;
+}
+
+
+/*Table desgining*/
+
+
+
+
+
+.content_section {
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+
+}
+
+table th, table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+table th {
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+    
+}
+
+table tbody tr{
+    background-color: #f2f2f2;
+    
+}
+
+legend{
+    color: #050505;
+    background-color: #f2f2f2;
+    width: 7%;
+    border-radius: 5px;
+    font-size: large;
+    font-weight: bold;
+    text-align: left;
+}
+
+
+table tbody tr:hover {
+    background-color: #ddd;
+}
+
+.footer_section {
+    
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.table_scroll {
+    overflow-x: auto;
+}

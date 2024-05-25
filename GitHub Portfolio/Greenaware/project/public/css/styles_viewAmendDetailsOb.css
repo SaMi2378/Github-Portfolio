@@ -1,0 +1,210 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    background-image: url('../images/nature1.jpg');
+    background-size: cover;
+    background-repeat: repeat-y;
+    background-attachment: fixed;
+    height: 100%;
+    width: 100%;
+  
+}
+
+.navbar {
+    background-color: #28a745; /* Light green */
+    width: 80%; /* Smaller width */
+    margin:  auto; /* Center the navbar */
+    border-radius: 10px;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    height: 50px;
+    box-shadow: 0 0 10px rgb(255, 255, 255);
+    
+}
+
+.navbar-brand, .navbar-nav .nav-link {
+    color: #ffffff;
+    font-weight: bold;
+    
+}
+
+ul{
+    width: 100vh;
+
+}
+
+
+.menu_text{
+    color: #ffffff;
+    font-weight: bold;
+    margin-top: 8px;
+    
+    
+}
+
+#navbar-brand{
+    left: 10px;
+}
+
+.container {
+    margin-top: 0;
+    margin-left: 50px;
+    width: 150%;
+    margin-right: 10%;
+
+}
+
+#container2{
+    margin-top: 0;
+    margin-right:-10%;
+    width: 45%;
+}
+
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-collapse {
+        display: -ms-flexbox !important;
+        display: flex !important;
+        -ms-flex-preferred-size: auto;
+        flex-basis: auto;
+        width: 45%;
+    }
+}
+
+.banner {
+
+grid-row: 1;
+background-color: #f5eeee7a;
+/* Green color */
+color: #000000;
+padding: 5px;
+text-align: center;
+font-family: 'Roboto', sans-serif;
+;
+width: 16.25%;
+margin: auto;
+border-radius: 5px;
+box-shadow: 0 0 10px rgb(0, 153, 255);
+margin-bottom: 10px;
+}
+
+.banner h1 {
+margin: 0;
+font-size: 26px;
+font-weight: bold;
+}
+
+.content_section {
+    padding: 20px;
+}
+
+.footer_section {
+
+    padding: 20px;
+    text-align: center;
+}
+
+/* Form styles */
+fieldset {
+    width: 35%;
+    margin: auto;
+    border: none;
+    margin-bottom: 20px;
+    background-color: #fff;
+    /* Add white background */
+    padding: 20px;
+    /* Add padding */
+    border-radius: 8px;
+    /* Add border-radius */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    /* Add box shadow */
+}
+
+legend {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+textarea,
+select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="submit"],
+input[type="button"] {
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+
+}
+
+input[type="submit"]:hover,
+input[type="button"]:hover {
+    background-color: #0056b3;
+}
+
+
+
+/* Optional: Hide scrollbar on select boxes in Firefox */
+select::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23444444" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8"><polygon points="0,0 8,0 4,4 0,0" /></svg>');
+    background-repeat: no-repeat;
+    background-position-x: 100%;
+    background-position-y: center;
+    padding-right: 2rem;
+}
+
+select:hover {
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .content_section {
+        padding: 1em;
+    }
+
+    
+        
+    
+}

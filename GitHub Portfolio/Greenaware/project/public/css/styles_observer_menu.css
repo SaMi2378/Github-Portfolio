@@ -1,0 +1,253 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    background-image: url('../images/nature1.jpg');
+    background-size: cover;
+    background-repeat: repeat-y;
+    background-attachment: fixed;
+    height: 100%;
+    width: 100%;
+  
+}
+
+.navbar {
+    background-color: #28a745; /* Light green */
+    width: 80%; /* Smaller width */
+    margin:  auto; /* Center the navbar */
+    border-radius: 10px;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    height: 50px;
+    box-shadow: 0 0 10px rgb(255, 255, 255);
+    
+}
+
+.navbar-brand, .navbar-nav .nav-link {
+    color: #ffffff;
+    font-weight: bold;
+    
+}
+
+ul{
+    width: 100vh;
+
+}
+
+
+.menu_text{
+    color: #ffffff;
+    font-weight: bold;
+    margin-top: 8px;
+    
+    
+}
+
+#navbar-brand{
+    left: 10px;
+}
+
+.container {
+    margin-top: 0;
+    margin-left: 50px;
+    width: 150%;
+    margin-right: 10%;
+
+}
+
+#container2{
+    margin-top: 0;
+    margin-right:-10%;
+    width: 45%;
+}
+
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-collapse {
+        display: -ms-flexbox !important;
+        display: flex !important;
+        -ms-flex-preferred-size: auto;
+        flex-basis: auto;
+        width: 45%;
+    }
+}
+        /* Additional CSS styling for the fieldsets */
+        .fieldset-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            height: 75vh; /* Set height to full viewport height */
+        }
+
+        .fieldset-left,
+        .fieldset-right {
+            width: calc(50% - 20px);
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            
+        }
+
+        
+
+        .observation-table {
+            width: 280%;
+            border-collapse: collapse;
+            table-layout: fixed; /* Fixed layout to ensure consistent column widths */
+
+        }
+
+        .observation-table th,
+        .observation-table td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+            white-space: normal; /* Allow text wrapping */
+            word-wrap: break-word; /* Break long words */
+            overflow-wrap: break-word; /* Handle word breaks */
+        }
+
+        .observation-table th{
+            background-color: #28a745;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .observation-table tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+    
+        } 
+        
+        .observation-table tbody tr{
+             background-color: #f2f2f2;
+    
+        }
+        .observation-table tbody tr:hover {
+            background-color: #ddd;
+        }
+
+        .fieldset-left {
+        margin-right: 20px;
+        overflow: auto; /* Add overflow property */
+        max-height: 600px; /* Set max-height to enable scrollbar */
+        }
+
+        
+        .observation-table th.notes,
+        .observation-table td.notes {
+        word-wrap: break-word;
+        align-items: center; /* Center vertically */
+        
+        overflow-wrap: break-word;
+        justify-content: left; /* Center horizontally */
+        text-align: center; /* Align text in the center */
+        width: auto; /* Adjust the width as needed */
+        height: auto; /* Allow cells to increase in height */
+        }
+        
+        .observation-table th.email,
+        .observation-table td.email {
+        word-wrap: break-word;
+        align-items: center; /* Center vertically */
+        justify-content: center; /* Center horizontally */
+        text-align: center; /* Align text in the center */
+        width: 10%; /* Adjust the width as needed */
+        }  
+
+        .messages-table {
+            width: 105%;
+            border-collapse: collapse;
+            table-layout: fixed; /* Fixed layout to ensure consistent column widths */
+
+        }
+
+        .messages-table th,
+        .messages-table td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+            white-space: normal; /* Allow text wrapping */
+            word-wrap: break-word; /* Break long words */
+            overflow-wrap: break-word; /* Handle word breaks */
+        }
+
+        .messages-table th{
+            background-color: #28a745;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .messages-table tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+    
+        } 
+        
+        .messages-table tbody tr{
+             background-color: #f2f2f2;
+    
+        }
+        .messages-table tbody tr:hover {
+            background-color: #ddd;
+        }
+        
+
+        .fieldset-right {
+        margin-right: 20px;
+        overflow: auto; /* Add overflow property */
+        max-height: 600px; /* Set max-height to enable scrollbar */
+        }
+
+
+        #legend1,
+        #legend2{
+            color: #fff;
+        }
+
+        #newObservation {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #ffffff;
+            background-color: #0a7afa; /* Coral color */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            position: relative;
+            top: -100px; /* Adjust the top offset as needed */
+            right: -7cm; /* Adjust the left offset as needed */
+            width: 120px; /* Set the desired width */
+            height: 50px;
+        }
+        
+        #newObservation:hover {
+            background-color: #33ff33b6; /* Darker coral color on hover */
+        }
+
+        #deleteButton {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #ffffff;
+            background-color: #ff6347; /* Coral color */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            position: relative;
+            top: -100px; /* Adjust the top offset as needed */
+            right: -10cm; /* Adjust the left offset as needed */
+            width: 120px; /* Set the desired width */
+            height: 50px;
+        }
+        
+        #deleteButton:hover {
+            background-color: #ff4833; /* Darker coral color on hover */
+        }
+
+       

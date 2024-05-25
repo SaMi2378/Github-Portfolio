@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<!-- <%- include('partials/head') %> -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Users</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/styles_Viewusers.css">
+</head>
+
+
+    <body>
+        <div class="grid">
+            <%- include('partials/navbar') %>
+           <div class="banner">
+                <h1>User List</h1>
+            </div>
+            <div class="content_section">
+                <!-- Observer Users Table -->
+                <fieldset id="field_observer">
+                    <legend id="legend_observer">
+                        <a>Observer Table </a>
+                    </legend>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Email</th>
+                            <th>Forename</th>
+                            <th>Surname</th>
+                            <th>Mobile Number</th>
+                            <th>Address</th>
+                            <th>Country</th>
+                            <th>Date of Birth</th>
+                            <th>Number of Accounts</th>
+                            <th>Category</th>
+                            <th>Account Status</th>
+                            <th>Account Balance</th>
+                            <th>Card Type</th>
+                            <th>Card Number</th>
+                            <th>CVV</th>
+                            <th>Notification Preference (Email/Text)</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <% observerUsers.forEach(function(obj) { %>
+                        <tr>
+                            <td><%= obj._id %></td>
+                            <td><%= obj.email %></td>
+                            <td><%= obj.userforename %></td>
+                            <td><%= obj.usersurname %></td>
+                            <td><%= obj.mobileNumber %></td>
+                            <td><%= obj.address %></td>
+                            <td><%= obj.country %></td>
+                            <td><%= obj.userDOB.toLocaleDateString() %></td>
+                            <td><%= obj.userAccounts %></td>
+                            <td><%= obj.category %></td>
+                            <td><%= obj.accountStatus %></td>
+                            <td>
+                                <% if (obj.accountBalance !== 0 && obj.accountBalance !== null) { %>
+                                    <%= new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP' }).format(obj.accountBalance) %>
+                                <% } %>
+                            </td>
+                            <td><%= obj.cardType %></td>
+                            <td><%= obj.cardnumber %></td>
+                            <td><%= obj.cvv %></td>
+                            <td><%= obj.notificationPreference %></td>
+                        </tr>
+                        <% }) %>
+                        </tbody>
+                    </table>
+                </fieldset>
+
+                <!-- Support Users Table -->
+                <fieldset id="field_support">
+                    <legend id="legend_support">Support Table</legend>
+                    <div class="table_scroll">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Email</th>
+                            <th>Forename</th>
+                            <th>Surname</th>
+                            <th>Mobile Number</th>
+                            <th>Address</th>
+                            <th>Country</th>
+                            <th>Date of Birth</th>
+                            <th>Number of Accounts</th>
+                            <th>Category</th>
+                            <th>Account Status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <% supportUsers.forEach(function(obj) { %>
+                        <tr>
+                            <td><%= obj._id %></td>
+                            <td><%= obj.email %></td>
+                            <td><%= obj.userforename %></td>
+                            <td><%= obj.usersurname %></td>
+                            <td><%= obj.mobileNumber %></td>
+                            <td><%= obj.address %></td>
+                            <td><%= obj.country %></td>
+                            <td><%= obj.userDOB.toLocaleDateString() %></td>
+                            <td><%= obj.userAccounts %></td>
+                            <td><%= obj.category %></td>
+                            <td><%= obj.accountStatus %></td>
+                        </tr>
+                        <% }) %>
+                    </tbody>
+                    </table>
+                </div>
+                </fieldset>
+            </div>
+            <div class="footer_section"></div>
+        </div>
+    </body>
+</html>
+

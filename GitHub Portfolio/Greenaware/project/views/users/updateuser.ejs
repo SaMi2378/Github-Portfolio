@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+       <link rel="stylesheet" href="../../css/styles_updateuser.css">
+    </head>
+
+
+    <!-- This Script can be used directly here or called from a script.js file saved in javascript directory.-->
+    <script src="../../javascript/script_updateUser.js"></script>
+    <!-- <script>
+        // Function to show/hide additional fields based on category selection
+        function toggleFields() {
+            const category = document.getElementById('category').value;
+            const observerFields = document.getElementById('observer-fields');
+
+            if (category === 'Observer') {
+                observerFields.style.display = 'block';
+            } else {
+                observerFields.style.display = 'none';
+            }
+        }
+
+
+        async function fetchUserDetails(userId) {
+        if (!userId) {
+            return;
+        }
+
+        try {
+            const response = await fetch(`/users/${userId}`);
+            if (response.ok) {
+                const user = await response.json();
+                document.getElementById('email').value = user.email || '';
+                document.getElementById('usertitle').value = user.usertitle || 'Mr';
+                document.getElementById('userforename').value = user.userforename || '';
+                document.getElementById('usersurname').value = user.usersurname || '';
+                document.getElementById('mobileNumber').value = user.mobileNumber || '';
+                document.getElementById('address').value = user.address || '';
+                document.getElementById('country').value = user.country || '';
+                document.getElementById('userDOB').value = user.userDOB ? new Date(user.userDOB).toISOString().split('T')[0] : '';
+                document.getElementById('userAccounts').value = user.userAccounts || 1;
+                document.getElementById('category').value = user.category || 'Support';
+                document.getElementById('accountStatus').value = user.accountStatus || 'Active';
+
+                if (user.category === 'Observer') {
+                    document.getElementById('observer-fields').style.display = 'block';
+                    document.getElementById('accountBalance').value = user.accountBalance || '';
+                    document.getElementById('cardnumber').value = user.cardnumber || '';
+                    document.getElementById('cardType').value = user.cardType || 'Visa';
+                    document.getElementById('cvv').value = user.cvv || '';
+                    document.getElementById('notificationPreference').value = user.notificationPreference || 'Text';
+                } else {
+                    document.getElementById('observer-fields').style.display = 'none';
+                }
+            } else {
+                console.error('Failed to fetch user details');
+            }
+        } catch (error) {
+            console.error('Error fetching user details:', error);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const userSelect = document.querySelector('select[name="_id"]');
+        userSelect.addEventListener('change', (event) => {
+            fetchUserDetails(event.target.value);
+        });
+    });
+
+        
+
+    </script> -->
+
+
+<body>
+    <div class="grid">
+        <%- include('partials/navbar') %>
+        <div class="banner">
+            <h1>Update User</h1>
+        </div>
+        <div class="content_section">
+            <form method="post" action="/users/updateuser">
+                <fieldset>
+                    <p>
+                        <label>Select User</label>
+                        <select name="_id">
+                            <option value="">Select a user</option>
+                            <% users.forEach(function(obj) { %>
+                                <option value="<%= obj._id %>">
+                                    [<%= obj.category %>]
+                                    <%= obj.userforename %> <%= obj.usersurname %></option>
+                            <% }) %>
+                        </select>
+                    </p>
+                </fieldset>
+                <fieldset>
+                    
+                    <p>
+                        <label for="email">Email: </label>
+                        <input type="text" id="email" name="email" placeholder="Enter email..." required />
+                    </p>
+                    
+                    <p>
+                        <label for="usertitle">Title: </label>
+                        <select id="usertitle" name="usertitle" required>
+                            <option value="Mr">Mr</option>
+                            <option value="Mrs">Mrs</option>
+                            <option value="Ms">Ms</option>
+                            <option value="Dr">Dr</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label for="userforename">Forename: </label>
+                        <input type="text" id="userforename" name="userforename" placeholder="Enter forname...."  required></input>
+                    </p>
+                    <p>
+                        <label for="usersurname">Surname: </label>
+                        <input type="text" id="usersurname" name="usersurname" placeholder="Enter surname..." required />
+                    </p>
+                    <p>
+                        <label for="mobileNumber">Mobile Number: </label>
+                        <input type="text" id="mobileNumber" name="mobileNumber" placeholder="Enter mobile number..." required />
+                    </p>
+                    <p>
+                        <label for="address">Address:</label>
+                        <textarea id="address" name="address" placeholder="Enter address" rows="3" required></textarea>
+                    </p>
+                    <p>
+                        <label for="country">Country:</label>
+                        <textarea id="country" name="country" placeholder="Enter country" rows="1" required></textarea>
+                    </p>
+                    <p>
+                        <label for="userDOB">Date of Birth: </label>
+                        <input id="userDOB" name="userDOB" type="date" value="2009-01-01" min="1910-01-01" max="2010-01-01" required />
+                    </p>
+                    <p>
+                        <label for="userAccounts">Number of Accounts: </label>
+                        <input type="number" id="userAccounts" name="userAccounts" value="1" min="1" max="2" required />
+                    </p>
+                    <p>
+                        <label for="category">Category:</label>
+                        <select id="category" name="category" onchange="toggleFields()">
+                            <option value="Support">Support</option>
+                            <option value="Observer">Observer</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label for="accountStatus">Account Status:</label>
+                        <select id="accountStatus" name="accountStatus">
+                            <option value="Active">Active</option>
+                            <option value="Inactive">Inactive</option>
+                            <option value="Suspended">Suspended</option>
+                        </select>
+                    </p>
+                    <div id="observer-fields" style="display: none;">
+                        <p>
+                            <label for="accountBalance">Account Balance:</label>
+                            <input type="number" id="accountBalance" name="accountBalance" placeholder="Enter balance..." />
+                        </p>
+                        <p>
+                            <label for="cardnumber">Card Number (16 digits):</label>
+                            <input type="text" id="cardnumber" name="cardnumber" placeholder="Enter card number..." />
+                        </p>
+                        <p>
+                            <label for="cardType">Credit Card Type:</label>
+                            <select id="cardType" name="cardType">
+                                <option value="Visa">Visa</option>
+                                <option value="Mastercard">Mastercard</option>
+                            </select>
+                        </p>
+                        <p>
+                            <label for="cvv">CVV (3 digits):</label>
+                            <input type="password" id="cvv" name="cvv">
+                        </p>
+                        <p>
+                            <label for="notificationPreference">Notification Preference:</label>
+                            <select id="notificationPreference" name="notificationPreference">
+                                <option value="Text">Text</option>
+                                <option value="Email">Email</option>
+                            </select>
+                        </p>
+                    </div>
+                    <div class="button-container">
+                        <input type="submit" id="accept-button" value="Accept">
+                        <input type="button" id="cancel-button2" value="Cancel" onclick="window.location.href='/users/userhome'">
+                    </div>
+                    
+                </fieldset>
+            </form>
+        </div>
+        <div class="footer_section"></div>
+    </div>
+</body>
+</html>

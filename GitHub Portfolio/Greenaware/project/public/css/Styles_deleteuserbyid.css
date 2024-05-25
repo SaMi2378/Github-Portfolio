@@ -1,0 +1,143 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    background-image: url('../images/nature1.jpg');
+    background-size: cover;
+    background-repeat: repeat-y;
+    background-attachment: fixed;
+    height: 100%;
+    width: 100%;
+
+}
+
+/*Banner with title style*/
+.banner {
+
+    grid-row: 1;
+    background-color: #f5eeee7a;
+    /* Green color */
+    color: #000000;
+    padding: 5px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    ;
+    width: 16.25%;
+    margin: auto;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgb(0, 153, 255);
+    margin-bottom: 0px;
+    margin-top: 10%;
+}
+
+.banner h1 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+/*Navbar complete style*/
+.navbar {
+    background-color: #28a745;
+    /* Light green */
+    width: 80%;
+    /* Smaller width */
+    margin: auto;
+    /* Center the navbar */
+    border-radius: 10px;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    height: 50px;
+    box-shadow: 0 0 10px rgb(255, 255, 255);
+}
+
+.navbar-brand,
+.navbar-nav .nav-link {
+    color: #ffffff;
+    font-weight: bold;
+
+}
+
+ul {
+    width: 100vh;
+
+}
+
+
+.menu_text {
+    color: #ffffff;
+    font-weight: bold;
+    margin-top: 8px;
+
+
+}
+
+#navbar-brand {
+    left: 10px;
+}
+
+.container {
+    margin-top: 0;
+    margin-left: 50px;
+    width: 150%;
+
+}
+
+#container2 {
+    margin-top: 0;
+    margin-right: -90px;
+}
+
+
+
+.content_section {
+    
+    width: 20%;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 1%;
+}
+
+form {
+    width: 100%;
+    margin:auto;
+
+    
+}
+
+fieldset {
+    border: none;
+    padding: 10px 0;
+    
+}
+
+
+input[type="submit"],
+input[type="button"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #007bff;
+    color: #fff;
+}
+
+
+
+#cancel-button2 {
+    background-color: #eb0d0d; /* Red color */
+    color: #fff;
+}
+
+#search-button:hover,
+#cancel-button2:hover {
+    opacity: 0.8;
+}

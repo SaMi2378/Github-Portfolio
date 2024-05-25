@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head') %>
+    <body>
+        <div class="grid">
+            <div class="banner">
+                <h1>Query User</h1>
+            </div>
+            <%- include('partials/navbar_observer') %>
+                <div class="content_section">
+                    <form action="view_details" method="post">
+                        <fieldset>
+                            <p>
+                                <label>Select User</label>
+                                <select name="_id" >
+                                    <option value="<%= users._id %>">
+                                        <%= users.userforename %> <%= users.usersurname %>
+                                    </option>
+                                </select>
+                            </p>
+                            <button type="submit">View Details</button>
+                        </fieldset> 
+                    </form>
+                </div>
+            <div class="footer_section"></div>
+        </div>
+    </body>
+</html>

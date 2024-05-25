@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Greenaware</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/styles_register.css">
+   
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="/">Greenaware</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register">Register</a>
+                    </li>
+                    <li>
+                      <a class="nav-link" href="/login">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <h2 class="card-title">Register for Greenaware</h2>
+                    <form action="/register" method="POST">
+                        <div class="form-group">
+                            <label for="username">Email address:</label>
+                            <input type="text" id="username" name="username" placeholder="Enter email..." required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" name="password" placeholder="Enter password..." required>
+                        </div>
+                        <div class="form-group">
+                            <label for="usertitle">Title:</label>
+                            <select id="usertitle" name="usertitle" required>
+                                <option value="Mr">Mr</option>
+                                <option value="Mrs">Mrs</option>
+                                <option value="Ms">Ms</option>
+                                <option value="Dr">Dr</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="userforename">Forename:</label>
+                            <input type="text" id="userforename" name="userforename" placeholder="Enter forename..." required>
+                        </div>
+                        <div class="form-group">
+                            <label for="usersurname">Surname:</label>
+                            <input type="text" id="usersurname" name="usersurname" placeholder="Enter surname..." required>
+                        </div>
+                        <div class="form-group">
+                            <label for="mobileNumber">Mobile Number:</label>
+                            <input type="text" id="mobileNumber" name="mobileNumber" placeholder="Enter mobile number..." required>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address:</label>
+                            <textarea id="address" name="address" placeholder="Enter address" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="country">Country:</label>
+                            <textarea id="country" name="country" placeholder="Enter country" rows="1" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="userDOB">Date of Birth:</label>
+                            <input id="userDOB" name="userDOB" type="date" value="2009-01-01" min="1910-01-01" max="2010-01-01" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="userAccounts">Number of Accounts:</label>
+                            <input type="number" id="userAccounts" name="userAccounts" value="1" min="1" max="2" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="category">Category:</label>
+                            <select id="category" name="category" onchange="toggleFields()" required>
+                                <option value="Support">Support</option>
+                                <option value="Observer">Observer</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="accountStatus">Account Status:</label>
+                            <select id="accountStatus" name="accountStatus">
+                                <option value="Active">Active</option>
+                            </select>
+                        </div>
+                        <div id="observer-fields" style="display: none;">
+                            <div class="form-group">
+                                <label for="accountBalance">Account Balance:</label>
+                                <input type="number" id="accountBalance" name="accountBalance" placeholder="Enter balance...">
+                            </div>
+                            <div class="form-group">
+                                <label for="cardnumber">Card Number (16 digits):</label>
+                                <input type="text" id="cardnumber" name="cardnumber" placeholder="Enter card number...">
+                            </div>
+                            <div class="form-group">
+                                <label for="cardType">Credit Card Type:</label>
+                                <select id="cardType" name="cardType">
+                                    <option value="Visa">Visa</option>
+                                    <option value="Mastercard">Mastercard</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="cvv">CVV (3 digits):</label>
+                                <input type="password" id="cvv" name="cvv">
+                            </div>
+                            <div class="form-group">
+                                <label for="notificationPreference">Notification Preference:</label>
+                                <select id="notificationPreference" name="notificationPreference">
+                                    <option value="Text">Text</option>
+                                    <option value="Email">Email</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- This script can be used In different ways calling it from a different file, or directly here.-->
+    <!-- <script>
+        // Function to show/hide additional fields based on category selection
+        function toggleFields() {
+            const category = document.getElementById('category').value;
+            const observerFields = document.getElementById('observer-fields');
+
+            if (category === 'Observer') {
+                observerFields.style.display = 'block';
+            } else {
+                observerFields.style.display = 'none';
+            }
+        }
+    </script> -->
+    <script src="../../javascript/script_register.js"></script>
+
+</body>
+</html>
